@@ -12,18 +12,25 @@
           </tr>
         </thead>
         <tbody>
-
             <tr>
-
-                {{-- <a class="btn btn-outline-dark" href="{{route('admin.posts.index')}}">BACK</a> --}}
-                {{-- <form action="{{route('admin.posts.destroy', $post)}}" method="POST">
-                    @method('DELETE')
-                    @csrf
-                    <button type="submit" class="btn btn-outline-danger">DELETE</button>
-                </form> --}}
+                <th scope="row">{{$pizza->nome}}</th>
+                <td >{{$pizza->prezzo}}</td>
+                <td >{{$pizza->ingredienti}}</td>
+                <td >
+                  @if ($pizza->vegetariana == true)
+                      <p>SI</p>
+                  @else
+                      <p>NO</p>
+                  @endif
+                </td>
+                <td>
+                    <form action="{{route('admin.pizzas.destroy', $pizza)}}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="btn btn-outline-danger">CANCELLA</button>
+                    </form>
               </td>
-            </tr>
-
+              </tr>
         </tbody>
       </table>
 </div>
