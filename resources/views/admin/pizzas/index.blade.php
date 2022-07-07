@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
     <h1>Index Crud</h1>
-    @dd($pizzas)
+
     <table class="table">
         <thead class="thead-dark">
           <tr>
