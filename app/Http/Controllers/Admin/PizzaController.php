@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\PizzaRequest;
 use App\Pizza;
 
 class PizzaController extends Controller
@@ -27,7 +28,7 @@ class PizzaController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pizzas.create');
     }
 
     /**
@@ -36,9 +37,14 @@ class PizzaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PizzaRequest $request)
     {
-        //
+        $data = $request->all();
+        $new_pizza = new Pizza();
+        $data['slug'] = Pizza::generateSlug($data['nome']);
+        $new_pizza->fill($data);
+        $new_pizza->save();
+        return redirect()->route('admin.pizzas.show', $new_pizza);
     }
 
     /**
@@ -49,7 +55,8 @@ class PizzaController extends Controller
      */
     public function show($id)
     {
-        //
+        $pizza = Pizza::find($id);
+        return view('admin.pizzas.show', compact('pizza'));
     }
 
     /**
@@ -60,7 +67,8 @@ class PizzaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pizza = Pizza::find($id);
+        return view('admin.pizzas.edit', compact('pizza'));
     }
 
     /**
@@ -70,9 +78,11 @@ class PizzaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PizzaRequest $request,Pizza $pizza)
     {
-        //
+        $data = $request->all();
+        $pizza->update($data);
+        return redirect()->route('admin.pizzas.show', compact('pizza'));
     }
 
     /**
@@ -86,3 +96,5 @@ class PizzaController extends Controller
         //
     }
 }
+
+

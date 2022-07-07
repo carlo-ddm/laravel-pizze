@@ -10,6 +10,7 @@
             <th scope="col">Prezzo</th>
             <th scope="col">Ingredienti</th>
             <th scope="col">Vegetariana</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
@@ -18,10 +19,16 @@
               <th scope="row">{{$pizza->nome}}</th>
               <td >{{$pizza->prezzo}}</td>
               <td >{{$pizza->ingredienti}}</td>
-              <td >{{$pizza->vegetariana}}</td>
+              <td >
+                @if ($pizza->vegetariana == true)
+                    <p>SI</p>
+                @else
+                    <p>NO</p>
+                @endif
+              </td>
               <td>
-                  {{-- <a class="btn btn-outline-primary" href="{{route('admin.posts.show', $post)}}" >SHOW</a>
-                  <a class="btn btn-outline-success" href="{{route('admin.posts.edit', $post)}}" >MODIFICA</a> --}}
+                  <a class="btn btn-outline-primary" href="{{route('admin.pizzas.show', $pizza)}}" >MOSTRA</a>
+                  <a class="btn btn-outline-success" href="{{route('admin.pizzas.edit', $pizza)}}" >MODIFICA</a>
             </td>
             </tr>
             @endforeach

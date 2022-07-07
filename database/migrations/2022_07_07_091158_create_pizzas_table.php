@@ -18,8 +18,8 @@ class CreatePizzasTable extends Migration
             $table->string('nome');
             $table->string('slug')->unique();
             $table->text('ingredienti');
-            $table->float('prezzo');
-            $table->boolean('vegetariana')->default(1);
+            $table->float('prezzo', 8, 2);
+            $table->boolean('vegetariana')->default(0);
             $table->timestamps();
         });
     }
