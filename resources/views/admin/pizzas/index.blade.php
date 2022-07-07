@@ -3,7 +3,6 @@
 <div class="container">
     <h1>Index Crud</h1>
     @dd($pizzas)
-
     <table class="table">
         <thead class="thead-dark">
           <tr>
@@ -19,7 +18,7 @@
               <th scope="row">{{$pizza->nome}}</th>
               <td >{{$pizza->prezzo}}</td>
               <td >{{$pizza->ingredienti}}</td>
-              <td >{{$pizza->vegetaria}}</td>
+              <td >{{$pizza->vegetariana}}</td>
               <td>
                   {{-- <a class="btn btn-outline-primary" href="{{route('admin.posts.show', $post)}}" >SHOW</a>
                   <a class="btn btn-outline-success" href="{{route('admin.posts.edit', $post)}}" >MODIFICA</a> --}}
