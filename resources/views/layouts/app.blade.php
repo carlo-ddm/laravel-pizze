@@ -26,7 +26,7 @@
                 <a class="navbar-brand" href="{{ route('home') }}">
                     Torna alla Pagina Pubblica
                 </a>
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{{ route('admin.pizzas.index')}}">
                     Menu Pizze
                 </a>
                 <a class="navbar-brand" href="#">
