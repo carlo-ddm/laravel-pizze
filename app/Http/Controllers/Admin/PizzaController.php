@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Pizza;
 
 class PizzaController extends Controller
 {
@@ -14,6 +15,7 @@ class PizzaController extends Controller
      */
     public function index()
     {
+        $pizzas = Pizza::orderBy('id', 'desc');
         return view('admin.pizzas.index');
     }
 
