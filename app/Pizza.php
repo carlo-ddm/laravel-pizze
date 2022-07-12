@@ -16,6 +16,10 @@ class Pizza extends Model
         'vegetariana'
     ];
 
+    public function ingredients(){
+        return $this->belongsToMany('App\Ingredient');
+    }
+
     public static function generateSlug($nome){
         $slug = Str::slug($nome, '-');
         $slug_base = $slug;
