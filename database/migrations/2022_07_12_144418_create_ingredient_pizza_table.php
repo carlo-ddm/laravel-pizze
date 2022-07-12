@@ -14,16 +14,16 @@ class CreateIngredientPizzaTable extends Migration
     public function up()
     {
         Schema::create('ingredient_pizza', function (Blueprint $table) {
-            $table->UnsignedBigInteger('pizza_id');
+            $table->unsignedBigInteger('pizza_id');
             $table->foreign('pizza_id')
             ->references('id')
-            ->on('ingredients')
+            ->on('pizzas')
             ->onDelete('cascade');
 
-            $table->UnsignedBigInteger('ingredient_id');
+            $table->unsignedBigInteger('ingredient_id');
             $table->foreign('ingredient_id')
             ->references('id')
-            ->on('pizzas')
+            ->on('ingredients')
             ->onDelete('cascade');
         });
     }
