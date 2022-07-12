@@ -18,7 +18,13 @@
             <tr>
               <th scope="row">{{$pizza->nome}}</th>
               <td >{{$pizza->prezzo}}</td>
-              <td >{{$pizza->ingredienti}}</td>
+              <td >
+                @forelse ($pizza->ingredients as $ingredient)
+                    <span>{{$ingredient->nome}}</span>
+                @empty
+                     -
+                @endforelse
+              </td>
               <td >
                 @if ($pizza->vegetariana == true)
                     <p>SI</p>

@@ -11,7 +11,7 @@ class Pizza extends Model
     protected $fillable = [
         'nome',
         'slug',
-        'ingredienti',
+        // 'ingredienti',
         'prezzo',
         'vegetariana'
     ];
