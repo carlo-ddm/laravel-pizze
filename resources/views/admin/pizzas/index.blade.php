@@ -40,6 +40,6 @@
             @endforeach
         </tbody>
       </table>
-
+      {{$pizzas->links()}}
 </div>
 @endsection

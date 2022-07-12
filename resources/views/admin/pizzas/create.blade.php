@@ -65,6 +65,12 @@
           {{-- @error('prezzo')
           <p class="error-msg">{{$message}}</p>
           @enderror --}}
+          <div class="mb-3 border">
+                @foreach ($ingredients as $ingredient)
+                    <input type="checkbox" name="ingredients[]" id="ingredient{{$loop->iteration}}" value="{{$ingredient->id}}">
+                    <label class="mr-3" for="ingredient{{$loop->iteration}}">{{$ingredient->nome}}</label>
+                @endforeach
+            </div>
           <button type="submit" class="btn btn-outline-primary">CREA</button>
         </div>
 
