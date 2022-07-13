@@ -46,8 +46,8 @@ class PizzaController extends Controller
         $data['slug'] = Pizza::generateSlug($data['nome']);
         $new_pizza->fill($data);
         $new_pizza->save();
-        if(array_key_exists('tags', $data)){
-            $new_post->tags()->attach($data['tags']);
+        if(array_key_exists('ingredients', $data)){
+            $new_pizza->ingredients()->attach($data['ingredients']);
         }
         return redirect()->route('admin.pizzas.show', $new_pizza);
     }
