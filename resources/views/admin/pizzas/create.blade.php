@@ -41,7 +41,7 @@
           @enderror
         </div>
 
-        <div class="form-group">
+        {{-- <div class="form-group">
           <label for="ingredienti">ingredienti</label>
           <textarea class="form-control @error('ingredienti') is-invalid
           @enderror"
@@ -53,7 +53,7 @@
           @error('ingredienti')
           <p class="error-msg">{{$message}}</p>
           @enderror
-        </div>
+        </div> --}}
 
 
         <div class="form-check">

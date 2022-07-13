@@ -29,7 +29,7 @@ class Pizza extends Model
         while($pizza_esistente){
             $slug = $slug_base . '-' . $counter;
             $counter++;
-            $pizza_esistente = Post::where('slug', $slug)->first();
+            $pizza_esistente = Pizza::where('slug', $slug)->first();
         }
         return $slug;
     }
